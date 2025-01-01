@@ -14,5 +14,5 @@ connectDB();
 
 server.listen(env.app.port, () => {
   swaggerDocs(app, env.app.port);
-  logger.info(`Application is started: http://locahost:${env.app.port}`);
+  logger.info(`Application is started: http://localhost:${env.app.port}`);
 });

@@ -76,7 +76,6 @@ export function validationMiddleware(configs: ValidationMiddlewareConfigs) {
 
       next();
     } catch (error) {
-      console.log("validationMiddleware", error);
       return res
         .status(500)
         .send(

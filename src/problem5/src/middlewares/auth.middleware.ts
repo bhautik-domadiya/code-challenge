@@ -16,7 +16,6 @@ export async function authMiddleware(
   const tokenProvider = new TokenProvider();
 
   const token = req.header("Authorization")?.replace("Bearer ", "");
-
   if (!token) {
     return res
       .status(401)

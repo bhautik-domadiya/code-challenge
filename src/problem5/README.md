@@ -1,204 +1,205 @@
-# **Express API with TypeORM and PostgreSQL**
+# Express API with TypeORM and PostgreSQL
 
-A robust RESTful API built with Express.js, TypeORM, and PostgreSQL, featuring a migration setup for database version control.
+A production-ready RESTful API built with Express.js, TypeORM, and PostgreSQL. This project implements a robust architecture with comprehensive features for building scalable backend applications.
 
----
+## ✨ Features
 
-## **Features**
+- **Express.js Framework**
 
-- Built with **Express.js** for routing and middleware.
-- Database integration using **TypeORM** with support for migrations.
-- **PostgreSQL** as the database.
-- Support for environment-based configurations.
-- Scalable and structured codebase.
-- CRUD operations with validation and error handling.
+  - Robust routing and middleware system
+  - Well-structured request/response handling
+  - Comprehensive error management
 
----
+- **Database Integration**
 
-## **Prerequisites**
+  - TypeORM with full migration support
+  - PostgreSQL for reliable data persistence
+  - Optimized query performance
 
-Make sure you have the following installed:
+- **Security & Authentication**
 
-- [Node.js](https://nodejs.org/) (>= 14.x)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [PostgreSQL](https://www.postgresql.org/)
+  - JWT-based authentication
+  - Secure password handling
+  - OTP verification system
 
----
+- **Developer Experience**
 
-## **Setup Instructions**
+  - Swagger UI API documentation
+  - Environment-based configurations
+  - TypeScript for type safety
+  - Structured codebase with clear separation of concerns
 
-### 1. Clone the Repository
+- **Data Validation**
+  - Request validation using class-validator
+  - Comprehensive error handling
+  - Data transformation with class-transformer
 
-```bash
-git clone <repository-url>
-cd <repository-folder>
-```
+## 🚀 Quick Start
 
-### 2. . Install Dependencies
+### Prerequisites
 
-```bash
-npm install
-```
+- Node.js >= 20.x
+- npm or yarn
+- PostgreSQL
 
-### 3. Set Up Environment Variables
+### Installation
 
-Create a .env file in the root directory and configure the following variables:
+1. **Clone the repository**
 
-```bash
-#
-# App Configuration
-#
-FRONT_END_URL=your_frontend_url
-APP_PORT=your_app_port
-#
-# Database Configuration
-#
-DB_HOST=your_db_host
-DB_PORT=your_db_port
-DB_USERNAME=your_db_uname
-DB_PASSWORD=your_db_pass
-DB_NAME=your_db_name
-#
-# Swagger
-#
-SWAGGER_ENABLED=true
-SWAGGER_ROUTE=/swagger
-SWAGGER_USERNAME=admin
-SWAGGER_PASSWORD=1234
-#
-# JWT Configuration
-#
-ACCESS_TOKEN_SECRET=access_token_secret
-ACCESS_TOKEN_EXPIRY=20m
-REFRESH_TOKEN_SECRET=refresh_token_secret
-REFRESH_TOKEN_EXPIRY=2d
-CRYPTO_SALT=5EbwVqBmHttb8fMwbC7PJ+6Q1musnjTb
-#
-# OTP / Token Expiry
-#
-OTP_EXPIRY_SECONDS=600  # 10 minutes (60 * 10 seconds)
-TOKEN_EXPIRY_SECONDS=600 # 10 minutes (60 * 10 seconds)
-#
-# Node Environment
-#
-NODE_ENV=dev
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
 
-```
+2. **Install dependencies**
 
-### 4. Run Database Migrations
+   ```bash
+   npm install
+   ```
 
-Generate and run database migrations using TypeORM:
+3. **Configure environment**
+   Create a `.env` file in the root directory:
 
-```bash
-npm run migration:create  # Generate a migration
-```
+    **Note** : you can simply copy .env from env.example file
+   ```env
+   # App Configuration
+   FRONT_END_URL=your_frontend_url
+   APP_PORT=your_app_port
 
-```bash
-npm run migration # run migration
-```
+   # Database Configuration
+   DB_HOST=your_db_host
+   DB_PORT=your_db_port
+   DB_USERNAME=your_db_uname
+   DB_PASSWORD=your_db_pass
+   DB_NAME=your_db_name
 
-### 4. Run Database Migrations
+   # Swagger Configuration
+   SWAGGER_ENABLED=true
+   SWAGGER_ROUTE=/swagger
+   SWAGGER_USERNAME=admin
+   SWAGGER_PASSWORD=1234
 
-Run the server in development mode:
+   # JWT Configuration
+   ACCESS_TOKEN_SECRET=access_token_secret
+   ACCESS_TOKEN_EXPIRY=20m
+   REFRESH_TOKEN_SECRET=refresh_token_secret
+   REFRESH_TOKEN_EXPIRY=2d
+   CRYPTO_SALT=5EbwVqBmHttb8fMwbC7PJ+6Q1musnjTb
 
-```bash
-npm run dev
-```
+   # OTP Configuration
+   OTP_EXPIRY_SECONDS=600
+   TOKEN_EXPIRY_SECONDS=600
 
-## **Technologies Used**
+   # Environment
+   NODE_ENV=dev
+   ```
 
-The project uses the following technologies and libraries:
 
-- **Node.js**: A JavaScript runtime environment.
-- **Express.js**: A web application framework for Node.js.
-- **TypeORM**: An Object-Relational Mapper (ORM) for database interaction.
-- **PostgreSQL**: A powerful, open-source relational database.
-- **TypeScript**: A superset of JavaScript with static typing.
-- **class-validator**: A library for validating class-based objects.
-- **class-transformer**: A library for transforming plain objects to class instances and vice versa.
 
----
+4. **Run migrations**
+   ```bash
+   npm run migration         # Apply or Run migration
+   ```
+   **Note** : We already add the sample login user , After running migrations, you can log in with these credentials:
 
-## **Available API Endpoints**
+   **Default Login Credentials**
+    - email: `admin123@gmail.com`
+    - Password: `Password@123`
 
-### **Auth Endpoints**
+5. **Start development server**
 
-The following endpoints are available for authentication:
+   ```bash
+   npm run dev
+   ```
 
-| Method   | Endpoint                    | Description             |
-| -------- | --------------------------- | ----------------------- |
-| **POST** | `/api/auth/register`        | register new user       |
-| **POST** | `/api/auth/login`           | Login user              |
-| **POST** | `/api/auth/change-password` | change password by user |
-| **GET**  | `/api/auth/me`              | get current user        |
-| **POST** | `/api/auth/refresh-token`   | get new access token    |
-| **POST** | `/api/auth/forgot-password` | forgot user password    |
-| **POST** | `/api/auth/resend-otp`      | resend OTP              |
-| **POST** | `/api/auth/verify-otp`      | verify OTP ( Default - 0000 ) |
-| **POST** | `/api/auth/reset-password`  | set new password        |
+6. **API Documentation with swagger**
 
-### **User Endpoints**
+    Access the API documentation at: [http://localhost:5050/swagger]
 
-The following endpoints are available for authentication:
+   **Default swagger Credentials**
+ 
+   - Username: `admin`
+   - Password: `1234`
 
-| Method  | Endpoint    | Description       |
-| ------- | ----------- | ----------------- |
-| **GET** | `/api/user` | get list of users |
+### Available Endpoints
 
-### **Task Endpoints**
+#### Authentication
 
-The following endpoints are available for managing tasks:
+| Method | Endpoint                    | Description                |
+| ------ | --------------------------- | -------------------------- |
+| POST   | `/api/auth/register`        | Register new user          |
+| POST   | `/api/auth/login`           | User login                 |
+| POST   | `/api/auth/change-password` | Change password            |
+| GET    | `/api/auth/me`              | Get current user           |
+| POST   | `/api/auth/refresh-token`   | Refresh access token       |
+| POST   | `/api/auth/forgot-password` | Initiate password reset    |
+| POST   | `/api/auth/resend-otp`      | Resend OTP                 |
+| POST   | `/api/auth/verify-otp`      | Verify OTP (Default: 0000) |
+| POST   | `/api/auth/reset-password`  | Set new password           |
 
-| Method     | Endpoint        | Description                               |
-| ---------- | --------------- | ----------------------------------------- |
-| **GET**    | `/api/task`     | Retrieve all tasks with optional filters. |
-| **GET**    | `/api/task/:id` | Retrieve a single task by its ID.         |
-| **POST**   | `/api/task`     | Create a new task.                        |
-| **PUT**    | `/api/task/:id` | Update an existing task by its ID.        |
-| **DELETE** | `/api/task/:id` | Soft delete a task by its ID.             |
+#### Users
 
-## Project Structure
+| Method | Endpoint    | Description    |
+| ------ | ----------- | -------------- |
+| GET    | `/api/user` | List all users |
 
-```ts
-+-- dist // Source build
-+-- node_modules // Contains all npm dependencies
-+-- src
-|   +-- core // Contain the core functionality
-|   |   +-- dto
-|   |   +-- enums
-|   |   +-- mappers
-|   |   +-- query
-|   +-- database // Contain the database config / migrations / model
-|   +-- modules
-|   |   +-- <module_name> //Name of module
-|   |   |    +-- controllers //Controllers
-|   |   |    +-- dto // DTO (Data Transfer Object) Schema, Validation
-|   |   |    +-- mappers // Mapper for data transfer
-|   |   |    +-- repositories //  Custom repository
-|   |   |    +-- services // Services for specific module
-|   |   +-- * // Other common modules
-|   +-- utils // Contain all utility classes/area of application
-|   |    +-- collection // use for the pagination return response
-|   |    +-- errors //contain errors
-|   |    +-- helpers // token provider and crypto service 
-|   |    +-- logger // setup of logger
-|   |    +-- swagger //setup of swaager
-|   +-- app.ts // Entry point of application
-|   +-- env.ts
-|   +-- routes.ts // all routes
-|   +-- server.ts // Entry point of application
-+-- .env // environment variable
+#### Tasks
 
+| Method | Endpoint        | Description             |
+| ------ | --------------- | ----------------------- |
+| GET    | `/api/task`     | List tasks with filters |
+| GET    | `/api/task/:id` | Get task by ID          |
+| POST   | `/api/task`     | Create task             |
+| PUT    | `/api/task/:id` | Update task             |
+| DELETE | `/api/task/:id` | Soft delete task        |
+
+## 📁 Project Structure
 
 ```
+src/
+├── core/                # Core functionality
+│   ├── dto/             # Data Transfer Objects
+│   ├── enums/           # Enumerations
+│   ├── mappers/         # Data mappers
+│   └── query/           # Query builders
+├── database/            # Database configuration
+├── modules/             # Feature modules
+│   └── <module_name>/   # Module-specific code
+│       ├── controllers/
+│       ├── dto/
+│       ├── mappers/
+│       ├── repositories/
+│       └── services/
+└── utils/              # Utility functions
+    ├── collection/     # Pagination utilities
+    ├── errors/         # Error handling
+    ├── helpers/        # Helper functions
+    ├── logger/         # Logging setup
+    └── swagger/        # Swagger configuration
+```
 
-- API Document endpoints
+## 🛠 Technologies
 
-  swagger-ui Endpoint : http://localhost:5050/swagger
+- **Core**
 
-  Enter above Cred for login in swagger 
+  - Node.js
+  - Express.js
+  - TypeScript
+  - PostgreSQL
 
-  ```bash
-  Username : admin
-  Password : 1234
-  ```
+- **ORM & Database**
+
+  - TypeORM
+  - Database migrations
+
+- **Validation & Transformation**
+
+  - class-validator
+  - class-transformer
+
+- **Documentation**
+  - Swagger UI
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

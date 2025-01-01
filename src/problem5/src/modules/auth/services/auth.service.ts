@@ -448,7 +448,6 @@ export class AuthService {
     try {
       const incomingRefreshToken = refreshTokenDto.refreshToken;
 
-      // console.log("incomingRefreshToken ->",incomingRefreshToken)
       if (!incomingRefreshToken) {
         return this.expressError.updateError(
           AuthErrorCodeEnum.ErrorAuthNoTokenFound,

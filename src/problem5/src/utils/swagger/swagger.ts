@@ -14,10 +14,6 @@ const options: swaggerJsdoc.Options = {
     },
     components: {
       securitySchemes: {
-        basicAuth: {
-          type: "http",
-          scheme: "basic",
-        },
         bearerAuth: {
           type: "http",
           scheme: "bearer",
@@ -36,7 +32,6 @@ const options: swaggerJsdoc.Options = {
     security: [
       {
         bearerAuth: [],
-        basicAuth: [],
       },
     ],
   },

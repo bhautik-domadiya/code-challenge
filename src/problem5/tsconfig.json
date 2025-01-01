@@ -4,7 +4,7 @@
     "rootDir": "./src",
     "baseUrl": "./src",
     "paths": {
-      "@models/*": ["db/mongo/models/*"],
+      "@models/*": ["database/models/*"],
       "@utils/*": ["utils/*"],
       "@middlewares/*": ["middlewares/*"],
       "@modules/*": ["modules/*"],

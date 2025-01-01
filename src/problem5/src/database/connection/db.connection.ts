@@ -24,7 +24,7 @@ export const connectDB = async () => {
       logger.info("DB connected successfully");
     })
     .catch((err) => {
-      console.log("err ->", err);
+
       logger.error("Error during Data Source initialization:", err);
     });
 };

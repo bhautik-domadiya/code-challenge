@@ -43,7 +43,6 @@ export class TaskController extends BaseController {
     req: Request,
     res: Response
   ): Promise<Response<SuccessDisplayModel | ExpressError>> {
-    console.log("req.params?.id ->",req.params?.id)
     const taskId = Number(req.params?.id);
     return this.getResult(
       await this.taskService.updateTask(taskId, req.body),
