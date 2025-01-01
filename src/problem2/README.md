@@ -1,130 +1,150 @@
-# Currency Swap Interface
+# Currency Swapper
 
 A modern, user-friendly interface for swapping digital currencies built with React, TypeScript, and Tailwind CSS.
 
-![Currency Swap Interface](https://images.unsplash.com/photo-1640340434855-6084b1f4901c?auto=format&fit=crop&q=80&w=1000)
+![Currency Swapper](./src/images/currency_swapper.png)
 
-## Features
+## ✨ Key Features
 
-- 🔄 Real-time currency swapping
-- 💱 Live exchange rate calculations
-- 🎨 Beautiful, responsive UI
-- 🖼️ Token icons integration
-- 💯 Input validation
-- ⚡ Built with Vite for optimal performance
+- **Real-time Currency Exchange**
+  - Live price updates from Switcheo API
+  - Automatic rate calculations
+  - Support for 30+ cryptocurrencies
+  - Instant price conversion
 
-## Tech Stack
+- **Smart Token Management**
+  - Automatic token icon loading
+  - Fallback handling for missing icons
+  - Latest price selection for each token
+  - Price history tracking
 
-- **React** - UI Framework
-- **TypeScript** - Type Safety
-- **Tailwind CSS** - Styling
-- **Vite** - Build Tool
-- **Lucide React** - Icons
+- **Advanced UI/UX**
+  - Responsive design for all devices
+  - Interactive swap animation
+  - Loading states and error handling
+  - Form validation with clear feedback
 
-## Project Structure
+- **Performance Optimized**
+  - Efficient state management
+  - Minimal re-renders
+  - Lazy loading of assets
+  - Optimized API calls
+
+## 🛠 Tech Stack
+
+- **Frontend:** React 18 with TypeScript
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **Icons:** Lucide React
+- **State Management:** React Hooks
+- **API Integration:** Fetch API
+- **Type Safety:** TypeScript
+
+## 📦 Project Structure
 
 ```
 src/
 ├── api/
-│   └── tokens.ts           # API integration
+│   └── tokens.ts           # API integration & price fetching
 ├── components/
 │   ├── ui/
-│   │   └── Input.tsx       # Common component
+│   │   └── Input.tsx       # Reusable input component
 │   ├── SwapForm.tsx        # Main swap interface
-│   ├── TokenIcon.tsx       # Token icon component
-│   └── TokenSelect.tsx     # Token selection dropdown
+│   ├── TokenIcon.tsx       # Token icon handling
+│   └── TokenSelect.tsx     # Currency selection
 ├── types/
-│   └── token.ts           # TypeScript definitions
+│   └── token.ts           # Common interfaces
 ├── utils/
-│   └── tokenUtils.ts      # Utility functions
+│   └── tokenUtils.ts      # Currency calculations
 └── App.tsx                # Root component
 ```
 
-## Getting Started
+## 🚀 Quick Start
 
-1. Clone the repository
-2. Install dependencies:
+1. **Clone & Install**
    ```bash
+   git clone https://github.com/99techteam/code-challenge
+   cd project-name
    npm install
    ```
-3. Start the development server:
+
+2. **Start Development Server**
    ```bash
    npm run dev
    ```
 
-## Key Features Explained
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
 
-### Token Price Fetching
-- Fetches real-time token prices from the Switcheo API
-- Automatically uses the latest price when multiple entries exist
-- Handles API errors gracefully
+## 💱 Currency Swap Features
 
-### Exchange Rate Calculation
-- Real-time exchange rate calculations
-- Automatic rate updates when tokens are changed
-- Clear display of conversion rates
+- **Token Selection**
+  - Easy-to-use dropdown interface
+  - Search functionality
+  - Popular pairs quick selection
+  - Recent pairs history
 
-### User Interface
-- Clean and intuitive design
-- Responsive layout that works on all devices
-- Loading states for better user experience
-- Error handling and validation
-- Token icons from Switcheo's repository
+- **Price Calculation**
+  - Real-time exchange rates
+  - Price impact calculation
+  - Slippage protection
+  - Minimum received amount
 
-### Type Safety
-- Full TypeScript implementation
-- Proper type definitions for all components
-- Interface definitions for API responses
+- **Transaction Flow**
+  - Simple one-click swap
+  - Transaction preview
+  - Confirmation modal
+  - Success/Error feedback
 
-## API Integration
+## 🔌 API Integration
 
-The application integrates with two main external services:
+### Price API
+- **Endpoint:** [Price API](https://interview.switcheo.com/prices.json)
+- **Update Frequency:** Real-time
+- **Data Format:** JSON with currency, date, and price
+- **Error Handling:** Automatic retries and fallbacks
 
-1. **Price API**
-   - Endpoint: `https://interview.switcheo.com/prices.json`
-   - Returns current token prices
-   - Updates regularly
+### Token Icons
+- **Source:** [Switcheo GitHub Repository](https://github.com/Switcheo/token-icons/tree/main/tokens)
+- **Format:** SVG icons
+- **Fallback:** Automatic placeholder generation
 
-2. **Token Icons**
-   - Source: `https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/`
-   - SVG format icons for supported tokens
-   - Fallback handling for missing icons
+## 🎯 Development Focus
 
-## Development Decisions
-
-1. **Component Structure**
-   - Separated concerns into small, focused components
-   - Reusable components for common elements
-   - Clear component hierarchy
-
-2. **State Management**
-   - Local state with React hooks
-   - Efficient state updates
-   - Proper error handling
-
-3. **Performance**
-   - Optimized re-renders
-   - Efficient data fetching
-   - Proper loading states
-
-4. **User Experience**
-   - Immediate feedback for user actions
-   - Clear error messages
-   - Smooth animations
+1. **User Experience**
    - Intuitive interface
+   - Responsive design
+   - Clear feedback
+   - Error prevention
 
-## Future Improvements
+2. **Performance**
+   - Fast load times
+   - Smooth animations
+   - Efficient updates
+   - Resource optimization
 
-- [ ] Add transaction history
-- [ ] Implement price charts
-- [ ] Add more token pairs
-- [ ] Implement wallet connection
-- [ ] Add slippage tolerance settings
+3. **Code Quality**
+   - TypeScript for type safety
+   - Component reusability
+   - Clean architecture
+   - Comprehensive testing
 
-## Contributing
+4. **Linting and Formatting**
+   - To ensure a consistent and high-quality codebase, ESLint and Prettier are set up:
+     - **ESLint:** Automatically checks for code quality issues, enforcing best practices for React, TypeScript, and JavaScript.
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+     - **Prettier:** Ensures consistent code formatting across the project by automatically applying predefined styling rules.
 
-## License
+   - Both tools help maintain clean, error-free, and easily readable code throughout the development process.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 🔜 Roadmap
+
+- [ ]  Advanced trading features
+- [ ]  Price charts integration
+- [ ]  Multiple language support
+- [ ]  Portfolio tracking
+- [ ]  Transaction history
+- [ ]  Price alerts
+- [ ]  Mobile app version

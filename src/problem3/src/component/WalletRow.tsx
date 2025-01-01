@@ -1,12 +1,4 @@
-// import React from 'react';
 import { IWalletRow } from '../utils/common.interface.ts';
-
-// interface IProps {
-//   amount: number;
-//   className: string;
-//   formattedAmount: string;
-//   usdValue: number;
-// }
 
 const WalletRow = (props: IWalletRow) => {
   const { amount, usdValue, formattedAmount, className } = props;
